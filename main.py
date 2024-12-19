@@ -23,8 +23,8 @@ def scrape_habr_articles():
     base_url = "https://habr.com/ru/all/"
     headers = {"User-Agent": "Mozilla/5.0"}
     articles = []
-
-    for page in range(1, 150):  # Укажите количество страниц для парсинга
+    # https://habr.com/ru/all/page50/
+    for page in range(1, 50):  # Укажите количество страниц для парсинга
         response = requests.get(f"{base_url}page{page}/", headers=headers)
         soup = BeautifulSoup(response.text, "html.parser")
         titles = soup.select("article h2 a")
